@@ -31,6 +31,8 @@ export const Signing = ({ multiQr, countdown, txPayloads, accountIds, onResult, 
       // TODO: Research complex verification
       const verifiablePayload = txPayloads[index]?.slice(1);
       const verifiableComplexPayload = txPayloads[index]?.slice(2);
+      console.warn(`⛩️ Unsigned transaction from verify: ${txPayloads}`);
+      console.warn(`⛩️ Signature from verify: ${signature}`);
 
       const isVerified =
         verifiablePayload && verifySignature(verifiablePayload, signature as HexString, accountIds[index]);

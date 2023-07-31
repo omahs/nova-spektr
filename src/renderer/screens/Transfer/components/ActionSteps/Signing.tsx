@@ -83,6 +83,8 @@ const Signing = ({
     // TODO: Research complex verify
     const verifiablePayload = txPayload?.slice(1);
     const verifiableComplexPayload = txPayload?.slice(2);
+    console.warn(`⛩️ Unsigned transaction from verify: ${txPayload}`);
+    console.warn(`⛩️ Signature from verify: ${signature}`);
 
     const isVerified = verifiablePayload && verifySignature(verifiablePayload, signature as HexString, accountId);
     const isComplexVerified =

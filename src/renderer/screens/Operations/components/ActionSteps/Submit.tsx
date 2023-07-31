@@ -68,6 +68,14 @@ export const Submit = ({
   }, []);
 
   const submitExtrinsic = async (signature: HexString) => {
+    console.warn('⛩️ Unsigned transaction from submit:');
+    for (const param in unsignedTx) {
+      if (Object.prototype.hasOwnProperty.call(unsignedTx, param)) {
+        const key: keyof typeof unsignedTx = param as any;
+        console.warn(`⛩️ ${key}: ${unsignedTx[key as keyof typeof unsignedTx]}`);
+      }
+    }
+    console.warn(`⛩️ Signature from submit: ${signature}`);
     const extrinsic = await getSignedExtrinsic(unsignedTx, signature, api);
 
     submitAndWatchExtrinsic(extrinsic, unsignedTx, api, async (executed, params) => {
