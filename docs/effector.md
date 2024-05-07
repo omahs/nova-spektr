@@ -26,8 +26,8 @@ sample({
 ```
 
 ### AppStarted event
-Because `effetor` is a pure JS library, it's units could be used in any part of the app.
-So in order to emit some important event like `appStarted` we can do the following:
+Because `effetor` is a pure JS library, its units could be used in any part of the app.
+So in order to emit some important events like `appStarted` we can do the following:
 ```typescript
 // index.tsx - app's entrypoint
 
